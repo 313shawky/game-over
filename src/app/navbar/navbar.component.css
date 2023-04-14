@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Xanh+Mono:ital@1&display=swap');
+
+nav{
+    background-color: var(--main-color);
+}
+
+.navbar-logo{
+    filter: drop-shadow(1px 1px 3px #1983e6ce);
+}
+
+.navbar-brand{
+    font-family: 'Xanh Mono', monospace;
+}

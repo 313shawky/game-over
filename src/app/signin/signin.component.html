@@ -1,0 +1,40 @@
+<div class="container py-5">
+    <div class="row py-5">
+        <div class="auth-fig col-md-6">
+            <figure class="auth-img"></figure>
+        </div>
+        <div class="col-md-6">
+            <div class="login-form text-center p-5">
+                <figure>
+                    <img class="w-25" src="../../assets/images/logo.png" alt="">
+                </figure>
+                <h1 class="h4 mb-4">Login to Game Over</h1>
+                <form [formGroup]="loginForm" (ngSubmit)="handleLogin(loginForm)" class="py-3">
+                    <div class="email mb-3">
+                        <input formControlName="email" class="form-control py-2 border-0" type="email" name="" id=""
+                            placeholder="Email Address">
+                    </div>
+                    <div class="passowrd mb-3">
+                        <input formControlName="password" class="form-control py-2 border-0" type="password" name=""
+                            id="" placeholder="Password">
+                    </div>
+                    <div *ngIf="apiError" class="alert alert-danger p-1">
+                        {{apiError}}
+                    </div>
+                    <button type="submit" class="btn btn-info w-100">
+                        <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
+                        <span *ngIf="!isLoading">Login</span>
+                    </button>
+                </form>
+                <hr class="text-secondary">
+                <div class="text-small">
+                    <a (click)="forgotPassword()" class="text-decoration-none text-primary">Forgot Password?</a>
+                </div>
+                <div class="text-small">
+                    <span class="text-muted">Not a member yet? </span>
+                    <a (click)="goRegister()" class="text-decoration-none text-primary">Create Account></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

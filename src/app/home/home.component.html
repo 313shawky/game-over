@@ -1,0 +1,28 @@
+<div class="home row py-5 my-5">
+    <div class="py-5 d-flex justify-content-center align-items-center">
+        <div class="text-center">
+            <h1>Find & track the best <span>free-to-play</span> games!</h1>
+            <p class="text-muted lead">Track what you've played and search for what to play next! Plus get free premium
+                loot!</p>
+            <button (click)="goToGames()" class="btn btn-outline-secondary">Browse Games</button>
+        </div>
+    </div>
+</div>
+<div class="container pb-5">
+    <div class="row pb-5">
+        <h3 class="pb-5"><i class="fas fa-robot"></i> Personalized Recommendations</h3>
+        <div *ngFor="let game of games" class="col-md-4">
+            <div class="game rounded-1">
+                <a [routerLink]="['/gamedetails', game.id]">
+                    <img src={{game.thumbnail}} alt="" class="w-100">
+                    <div class="p-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4 class="m-0">{{game.title}}</h4>
+                            <span class="badge p-2 text-uppercase">free</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

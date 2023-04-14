@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+:root{
+    --main-color: #272b30;
+    --second-color: #32383e;
+    --text-color: #aaa;
+}
+
+body{
+    background-color: var(--main-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+.text-small{
+    font-size: 14px;
+}
+
+a{
+    text-decoration: none;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+@media screen and (max-width:767px) {
+    .auth-fig{
+        display: none;
+    }
+}

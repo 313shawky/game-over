@@ -1,0 +1,81 @@
+<div class="game-bg w-100 vh-100"
+    style="background-image: url('https://www.freetogame.com/g/{{gameDetails.id}}/background.jpg');">
+    <div class="layer">
+        <div class="container py-5 my-5">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="position-relative media pb-3">
+                        <video class="rounded-2 w-100" autoplay controls loop muted>
+                            <source _ngcontent-kvg-c6="" type="video/webm" [src]='videoLink'>
+                        </video>
+                        <img [src]="gameDetails.thumbnail" class="w-100 rounded-1 position-absolute top-0 start-0 mb-3">
+                    </div>
+                    <div class="play d-flex justify-content-between gap-2 mt-3">
+                        <button class="btn text-uppercase">free</button>
+                        <a class="btn text-uppercase text-white fw-bold w-100" target="_blank"
+                            [href]="gameDetails.game_url">play now <i class="fas fa-sign-out-alt"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <h1>{{gameDetails.title}}</h1>
+                    <h5>About {{gameDetails.title}}</h5>
+                    <p class="fs-5">{{gameDetails.description}}</p>
+                    <div *ngIf="gameDetails.platform == 'Windows'">
+                        <h5 class="pt-3">Minimum System Requirements</h5>
+                        <p><span class="fw-bold">Graphics: </span>{{gameDetails.minimum_system_requirements.graphics}}
+                        </p>
+                        <p><span class="fw-bold">Memory: </span>{{gameDetails.minimum_system_requirements.memory}}</p>
+                        <p><span class="fw-bold">OS: </span>{{gameDetails.minimum_system_requirements.os}}</p>
+                        <p><span class="fw-bold">Processor: </span>{{gameDetails.minimum_system_requirements.processor}}
+                        </p>
+                        <p><span class="fw-bold">Storage: </span>{{gameDetails.minimum_system_requirements.storage}}</p>
+                    </div>
+                    <h5 class="mt-5">{{gameDetails.title}} Screenshots</h5>
+                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div *ngFor="let screenshot of gameDetails.screenshots" class="carousel-item active">
+                                <img [src]="screenshot.image" class="d-block w-100">
+                            </div>
+                        </div>
+                    </div>
+                    <h5 class="h2 mt-5">Additional Information</h5>
+                    <div class="row my-2">
+                        <div class="col-md-4">
+                            <h6 class="text-muted">Title</h6>
+                            <p>{{gameDetails.title}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h6 class="text-muted">Developer</h6>
+                            <p>{{gameDetails.developer}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h6 class="text-muted">Publisher</h6>
+                            <p>{{gameDetails.publisher}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h6 class="text-muted">Release Date</h6>
+                            <p>{{gameDetails.release_date}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h6 class="text-muted">Genre</h6>
+                            <p>{{gameDetails.genre}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h6 class="text-muted">Platform</h6>
+                            <p><span>
+                                    <i *ngIf="gameDetails.platform == 'Windows'" class="fab fa-windows"></i>
+                                    <i *ngIf="gameDetails.platform == 'Web Browser'" class="fas fa-window-maximize"></i>
+                                </span> {{gameDetails.platform}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="isLoading"
+    class="loading w-100 vh-100 position-fixed top-0 bottom-0 start-0 end-0 d-flex justify-content-center align-items-center">
+    <div class="d-flex justify-content-around align-items-center gap-4">
+        <span><i class="fas fa-spinner fa-spin fs-1 text-white"></i></span>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+h1 span{
+    color: #49acff !important;
+}
+
+.home{
+    background-color: #1c1e22;
+    background-image: url(../../assets/images/home-bg.png);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid #000;
+}
+
+.game{
+    background-color: #32383e;
+    transition: all 0.3s;
+}
+
+.game:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.game:hover a{
+    color: #aaa;
+}
+
+.badge{
+    background-color: #4799eb;
+    font-size: 0.75rem;
+}

@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg fixed-top shadow-lg">
+    <div class="container">
+        <a class="navbar-brand me-5" routerLink="home">
+            <img class="navbar-logo" width="75px" src="../../assets/images/logo.png" alt="">
+            <span class="text-white">Game Over</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse  d-flex justify-content-between" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li *ngIf="isLogin" class="nav-item">
+                    <a class="nav-link text-white active" aria-current="page" routerLink="home">Home</a>
+                </li>
+                <li *ngIf="isLogin" class="nav-item">
+                    <a class="nav-link text-white" [routerLink]="['games', 'all']">All</a>
+                </li>
+                <li *ngIf="isLogin" class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Platforms
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li *ngFor="let platform of platforms">
+                            <a class="dropdown-item" [routerLink]="['games', 'platforms', platform]">{{platform}}</a>
+                        </li>
+                    </ul>
+                </li>
+                <li *ngIf="isLogin" class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Sort-by
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li *ngFor="let sortItem of sortByArr" >
+                            <a class="dropdown-item" [routerLink]="['games', 'sort-by', sortItem]">{{sortItem}}</a>
+                        </li>
+                    </ul>
+                </li>
+                <li *ngIf="isLogin" class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Categories
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li *ngFor="let category of categories">
+                            <a class="dropdown-item" [routerLink]="['games', 'categories', category]">{{category}}</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="navbar-nav mb-2 mb-lg-0 d-flex align-items-center">
+                <li *ngIf="!isLogin" class="nav-item mx-2">
+                    <a class="nav-link text-white" routerLink="login">Login</a>
+                </li>
+                <li *ngIf="!isLogin" class="nav-item mx-2">
+                    <a class="btn btn-outline-primary" routerLink="register">Join Free</a>
+                </li>
+                <li *ngIf="isLogin" class="nav-item mx-2">
+                    <a (click)="logout()" class="btn btn-outline-primary">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

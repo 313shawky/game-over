@@ -1,0 +1,42 @@
+.game-bg{
+    position: relative;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.layer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(39,43,48,0.9);
+}
+
+.media video{
+    z-index: 999;
+}
+
+.media img{
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.media img:hover{
+    opacity: 0;
+    cursor: pointer;
+}
+
+.play button{
+    background-color: #32383e;
+    color: #aaa;
+}
+
+.play a{
+    background: linear-gradient(#4799eb,#4799eb 60%,#49acff);
+}
+
+.loading{
+    background-color: #32383e;
+}

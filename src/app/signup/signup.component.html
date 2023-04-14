@@ -1,0 +1,86 @@
+<div class="container py-5">
+    <div class="row py-5">
+        <div class="auth-fig col-md-6">
+            <figure class="auth-img"></figure>
+        </div>
+        <div class="col-md-6">
+            <div class="register-form text-center p-5">
+                <h1 class="h4 mb-4">Create My Account!</h1>
+                <form [formGroup]="registerForm" (ngSubmit)="handleRegister(registerForm)" class="py-3">
+                    <div class="d-flex justify-content-between mb-3">
+                        <div class="first-name">
+                            <input formControlName="first_name" class="form-control py-2 border-0" type="text" name=""
+                                id="" placeholder="First Name">
+                            <div *ngIf="registerForm.get('first_name')?.errors && registerForm.get('first_name')?.touched"
+                                class="alert alert-warning p-1">
+                                <p *ngIf="registerForm.get('first_name')?.getError('required')">First Name is required
+                                </p>
+                                <p
+                                    *ngIf="registerForm.get('first_name')?.getError('minlength') || registerForm.get('first_name')?.getError('maxlength')">
+                                    First Name length must be<br>between 3 to 20 character</p>
+                            </div>
+                        </div>
+                        <div class="last-name">
+                            <input formControlName="last_name" class="form-control py-2 border-0" type="text" name=""
+                                id="" placeholder="Last Name">
+                            <div *ngIf="registerForm.get('last_name')?.errors && registerForm.get('last_name')?.touched"
+                                class="alert alert-warning p-1">
+                                <p *ngIf="registerForm.get('last_name')?.getError('required')">Last Name is required</p>
+                                <p
+                                    *ngIf="registerForm.get('last_name')?.getError('minlength') || registerForm.get('last_name')?.getError('maxlength')">
+                                    Last Name length must be<br>between 3 to 20 character</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="email mb-3">
+                        <input formControlName="email" class="form-control py-2 border-0" type="email" name="" id=""
+                            placeholder="Email Address">
+                        <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched"
+                            class="alert alert-warning p-1">
+                            <p *ngIf="registerForm.get('email')?.getError('required')">Email is required</p>
+                            <p *ngIf="registerForm.get('email')?.getError('pattern')">Enter valid email</p>
+                        </div>
+                    </div>
+                    <div class="age mb-3">
+                        <input formControlName="age" class="form-control py-2 border-0" type="number" name="" id=""
+                            placeholder="Age">
+                        <div *ngIf="registerForm.get('age')?.errors && registerForm.get('age')?.touched"
+                            class="alert alert-warning p-1">
+                            <p *ngIf="registerForm.get('age')?.getError('required')">Age is required</p>
+                            <p
+                                *ngIf="registerForm.get('age')?.getError('min') || registerForm.get('age')?.getError('max')">
+                                Age must be between 1 to 100</p>
+                        </div>
+                    </div>
+                    <div class="passowrd mb-3">
+                        <input formControlName="password" class="form-control py-2 border-0" type="password" name=""
+                            id="" placeholder="Password">
+                        <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched"
+                            class="alert alert-warning p-1">
+                            <p *ngIf="registerForm.get('password')?.getError('required')">Password is required</p>
+                            <p *ngIf="registerForm.get('password')?.getError('pattern')">Min length is 8 characters</p>
+                        </div>
+                    </div>
+                    <div *ngIf="apiError" class="alert alert-danger p-1">
+                        {{apiError}}
+                    </div>
+                    <button type="submit" class="btn btn-info w-100">
+                        <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
+                        <span *ngIf="!isLoading">Create Account</span>
+                    </button>
+                </form>
+                <span class="text-small text-secondary py-2">
+                    This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy"
+                        target="_blank" class="text-secondary text-decoration-underline">Privacy Policy</a> and <a
+                        href="https://policies.google.com/terms" target="_blank" class="text-secondary text-decoration-underline">Terms of
+                        Service</a> apply.
+                </span>
+                <hr class="text-secondary">
+                <div class="text-small">
+                    <span class="text-muted">Already a member? </span>
+                    <a (click)="goLogin()" class="text-decoration-none text-primary">Login></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

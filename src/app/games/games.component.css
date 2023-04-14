@@ -1,0 +1,22 @@
+.game{
+    background-color: #32383e;
+    transition: all 0.3s;
+}
+
+.game:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.game:hover a{
+    color: #aaa;
+}
+
+.badge{
+    background-color: #4799eb;
+    font-size: 0.75rem;
+}
+
+.showMore{
+    width: fit-content;
+}

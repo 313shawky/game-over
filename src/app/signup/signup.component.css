@@ -1,0 +1,36 @@
+.col-md-6{
+    background-color: var(--second-color);
+}
+
+.auth-img{
+    background-image: url(../../assets/images/auth-image.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.register-form h1{
+    color: lightgray;
+}
+
+input{
+    background-color: #1c1e22 !important;
+    color: #fff !important;
+}
+
+.register-form button{
+    color: #fff;
+    background-color: #3a3f44;
+    border: 1px solid #22241d;
+}
+
+.register-form button:focus{
+    background-color: #0b5ed7;
+    border: 1px solid transparent;
+}
+
+.alert p{
+    margin: 0;
+}
